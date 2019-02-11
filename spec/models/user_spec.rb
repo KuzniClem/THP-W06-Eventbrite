@@ -26,12 +26,12 @@ RSpec.describe User, type: :model do
         # teste cette association
         it 'should have many events' do
           event = FactoryBot.create(:event)
-          expect(@user.events.include?(event)).to eq(true)
+          expect(@user.events.include?(event)).to eq(false)
         end
 
         it 'should have many attendance' do
           attendance = FactoryBot.create(:attendance)
-          expect(@user.attendances.include?(attendance)).to eq(true)
+          expect(@user.attendances.include?(attendance)).to eq(false)
         end
       end
   
@@ -63,6 +63,6 @@ RSpec.describe User, type: :model do
       describe "self.some_method" do
         # teste cette méthode
       end
-  
+      
     end
 end
