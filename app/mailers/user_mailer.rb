@@ -8,4 +8,12 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
+
+  def attendance_email(user)
+    @user = user
+
+    @url  = 'http://the-eventbrite-project.fr/login'
+
+    mail(to: @user.email, subject: 'Voici votre reservation !')
+  end
 end
