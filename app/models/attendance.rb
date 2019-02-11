@@ -9,6 +9,6 @@ class Attendance < ApplicationRecord
 	validates :stripe_customer_id,  presence: true
 
 	def attendance_send
-		UserMailer.attendance_email(self).deliver_now
+		UserMailer.attendance_email(self.user).deliver_now
 	end
 end
