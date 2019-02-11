@@ -1,24 +1,16 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# README Eventrbrite Week 6
 
-Things you may want to cover:
+This is a Ruby on Rails project for The Hacking Project done by Maxime Crespo ,Jules Couturaud and Clément Kuzniewycz.
 
-* Ruby version
+## Installation 
 
-* System dependencies
+    Ruby version : 2.5.1
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    How to run the test suite : 
+    ``` bundle install ``` 
+    ``` rails db:create```
+    ````rails db:migrate```
+    
+    puis faites vos bails.
