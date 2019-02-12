@@ -32,6 +32,13 @@ RSpec.describe Attendance, type: :model do
 
     describe "some association" do
       # teste cette association
+      it 'should have an user' do
+        user = FactoryBot.create(:user)
+      end
+
+      it 'should have an event' do
+        user = FactoryBot.create(:event)
+      end
     end
 
   end

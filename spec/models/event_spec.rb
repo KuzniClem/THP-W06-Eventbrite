@@ -67,6 +67,15 @@ RSpec.describe Event, type: :model do
 
     describe "some association" do
       # teste cette association
+      it 'should have an user' do
+        user = FactoryBot.create(:user)
+        expect(@event.users.include?(user)).to eq(false)
+      end
+
+      it 'should have many attendances' do
+        attendance = FactoryBot.create(:attendance)
+        expect(@event.attendances.include?(attendance)).to eq(false)
+      end
     end
 
   end
