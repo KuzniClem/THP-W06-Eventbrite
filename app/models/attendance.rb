@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class Attendance < ApplicationRecord
-	after_create :attendance_send
+  after_create :attendance_send
 
-	belongs_to :user
-	belongs_to :event
+  belongs_to :user
+  belongs_to :event
 
-	# Validations
+  # Validations
 
-	validates :stripe_customer_id,  presence: true
+  validates :stripe_customer_id, presence: true
 
-	def attendance_send
-		UserMailer.attendance_email(self.user).deliver_now
-	end
+  def attendance_send
+    UserMailer.attendance_email(user).deliver_now
+  end
 end

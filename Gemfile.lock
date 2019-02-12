@@ -44,6 +44,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    after_do (0.3.1)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -93,6 +94,8 @@ GEM
     ffi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    husky (0.5.15)
+      after_do (= 0.3.1)
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -153,6 +156,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.2)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.4)
+      actionpack (>= 5.0.1.x)
+      actionview (>= 5.0.1.x)
+      activesupport (>= 5.0.1.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -218,6 +225,8 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    shoulda-matchers (4.0.0.rc1)
+      activesupport (>= 4.2.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -265,6 +274,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  husky
   jbuilder (~> 2.5)
   letter_opener
   listen (>= 3.0.5, < 3.2)
@@ -273,11 +283,13 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   rails (~> 5.2.2)
+  rails-controller-testing
   rspec-rails
   rubocop (~> 0.60.0)
   rubocop-rspec (~> 1.30, >= 1.30.1)
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers (= 4.0.0.rc1)
   spring
   spring-watcher-listen (~> 2.0.0)
   table_print
