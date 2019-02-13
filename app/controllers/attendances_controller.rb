@@ -22,7 +22,10 @@ class AttendancesController < ApplicationController
       :currency    => 'eur'
     )
 
-  Attendance.create(user_id: current_user.id, event_id: params[:event_id], stripe_customer_id: Stripe::Customer.retrieve(customer.id))
+  if Attendance.create(user_id: current_user.id, event_id: params[:event_id], stripe_customer_id: Stripe::Customer.retrieve(customer.id))
+    redirect_to event_path(params[:event_id])
+    flash[:sucess] = "Vous êtes bien inscrit à l'événement"
+  end
   
   rescue Stripe::CardError => e
     flash[:error] = e.message
