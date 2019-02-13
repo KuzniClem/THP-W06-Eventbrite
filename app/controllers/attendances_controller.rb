@@ -4,11 +4,13 @@ class AttendancesController < ApplicationController
   end
   
   def new
+    @event = Event.find(params[:event_id])
   end
   
   def create
     # Amount in cents
-    @amount = 500
+    @event = Event.find(params[:event_id])
+    @amount = @event.price * 100
   
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
