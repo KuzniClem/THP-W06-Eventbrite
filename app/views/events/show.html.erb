@@ -4,3 +4,6 @@
 <p> commence le <%= @event.start_date%> finit le <%= @event.start_date + @event.duration %> </p>
 <p> Où ? <%= @event.location %> </p>
 <p> Prix : <%= @event.price %> € </p>
+<% if user_signed_in? && @event.user_id != current_user.id && @attendance == nil %>
+  <a class='btn btn-dark' href='<%= new_event_attendance_path(@event.id) %>'>Participer</a>
+<% end %>
