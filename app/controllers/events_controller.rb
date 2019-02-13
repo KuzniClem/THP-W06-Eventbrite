@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
+  before_action :only_admin_own_event, only: [:edit, :update, :destroy]
   def index
     @event = Event.all
   end
@@ -41,5 +42,13 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path
+  end
+
+  def only_admin_own_event
+    @event = Event.find(params[:id])
+  
+    if @event.user_id != current_user.id
+      redirect_to root_path, notice: "Sorry, but you are not allowed to access this page"
+    end
   end
 end
