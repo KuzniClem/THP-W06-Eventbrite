@@ -7,4 +7,4 @@
 </ul>
 
 <a class='btn btn-dark' href='<%= edit_event_path(event.id) %>'>Editer l'évévenement</a>
-<a class='btn btn-dark' href=''>Supprimer l'évévenement</a>
+<a class="btn btn-dark"<%= link_to "Supprimer l'évévenement", event_path(event.id), method: :delete %> </a>
