@@ -1,2 +1,7 @@
-<h1>Attendances#index</h1>
-<p>Find me in app/views/attendances/index.html.erb</p>
+<h1>Les Participants</h1>
+<% event = Event.find(params[:event_id]) %>
+<% event.users.each do |p| %>
+<ul class="list-group">
+  <li class="list-group-item"><%p.first_name + p.last_name%></li>
+</ul>
+<% end %>
