@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :admins, only: [:index] do
+    resources :users
+    root 'admins#index'
+  end
   root 'events#index'
   resources :events do
     resources :attendances, only: [:index, :new, :create]
