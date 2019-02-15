@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!
   before_action :only_see_own_page, only: [:show]
+  before_action :is_admin?, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find(params[:id])
@@ -33,4 +34,10 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "Sorry, but you are only allowed to view your own profile page."
     end
   end
+
+  def is_admin?
+    if user_signed_in? && !current_user.is_admin
+      redirect_to root_path
+    end
+   end
 end
