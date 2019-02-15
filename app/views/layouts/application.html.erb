@@ -26,6 +26,11 @@
           <li>
             <a class="nav-link" href='<%= new_event_path %>'>Create event</a>
           </li>
+          <% if user_signed_in? && current_user.is_admin %>
+            <li>
+              <a class="nav-link" href='<%= admins_path %>'>Dashboard admin</a>
+            </li>
+          <%end%>
         </ul>
         <% if user_signed_in? %>
           <div class="btn-group">

@@ -1,24 +1,7 @@
 class AdminsController < ApplicationController
   before_action :is_admin?
  def index
- end
-
- def create
- end
-
- def new
- end
-
- def edit
- end
-
- def update
- end
-
- def show
- end
-
- def destroy
+  @user = User.all
  end
 
  def is_admin?
