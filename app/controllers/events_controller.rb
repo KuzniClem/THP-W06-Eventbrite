@@ -21,7 +21,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @creator = User.find(@event.user_id)
-    @attendance = Attendance.find_by(event_id: params[:id], user_id: current_user.id)
+    if user_signed_in?
+      @attendance = Attendance.find_by(event_id: params[:id], user_id: current_user.id)
+    end
   end
 
   def edit
